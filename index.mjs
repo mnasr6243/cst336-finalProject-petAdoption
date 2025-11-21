@@ -21,21 +21,35 @@ app.get('/', (req, res) => {
    res.render('home.ejs');
 });
 
+app.get('/getBySpecies', async (req, res) => {
+    let species = req.query.species;
+    let sql = `SELECT *
+               FROM animals
+               WHERE species = ?`;
+    let sqlParams = [`${species}`];
+    const [rows] = await pool.query(sql, sqlParams);
+    // TODO: depends on the structure of viewing pages
+    //       by species
+    res.render('species.ejs', { rows });
+});
+
 app.get('/addAnimal', (req, res) => {
     res.render('addAnimal.ejs')
 });
 
 app.post('/addAnimal', async(req, res) => {
     let name = req.body.name;
-    let type = req.body.type;
+    let species = req.body.species;
     let breed = req.body.breed;
     let dob = req.body.dob;
     let sex = req.body.sex;
+    let description = req.body.description;
+    let status = "available"
 
-    let sql = `INSERT INTO animal
-               (name, type, breed, dob, sex)
-               VALUES (?, ?, ?, ?, ?)`;
-    let sqlParams = [name, type, breed, dob, sex];
+    let sql = `INSERT INTO animals
+               (name, species, breed, dob, sex, description, status)
+               VALUES (?, ?, ?, ?, ?, ?, ?)`;
+    let sqlParams = [name, species, breed, dob, sex, description, status];
     const [rows] = await pool.query(sql, sqlParams);
     res.render('addAnimal.ejs')
 });
