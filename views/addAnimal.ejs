@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Add Animal</h1>
+    </header>
+    <div id="content">
+        <form action="/addAnimal" method="POST" id="form">
+            <div class="entry">
+                <div class="label">
+                    Animal Name:
+                </div>
+                <input type="text" name="name"> <br>
+            </div>
+            
+            <div class="entry">
+                <div class="label">
+                    Animal Type:
+                </div>
+                <select name="type">
+                    <option value="ddog">Dog</option>
+                    <option value="cat">Cat</option>
+                </select> <br>
+            </div>
+
+            <div class="entry">
+                <div class="label">
+                    Animal Breed:
+                </div>
+                <input type="text" name="breed"> <br>
+            </div>
+
+            <div class="entry">
+                <div class="label">
+                    Date of Birth:
+                </div>
+                <input type="date" name="dob"> <br>
+            </div>
+            
+            <div class="entry">
+                <div class="label">
+                    Sex:
+                </div>
+                Male <input type="radio" name="sex" value="Male"> 
+                Female <input type="radio" name="sex" value="Female"> <br>
+            </div>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <footer>By Jack, Justin, Mohammed, and Alec</footer>
+</body>
+</html>

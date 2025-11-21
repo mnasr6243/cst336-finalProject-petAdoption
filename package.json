@@ -1,0 +1,26 @@
+{
+  "name": "cst336-finalproject-petadoption",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnasr6243/cst336-finalProject-petAdoption.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mnasr6243/cst336-finalProject-petAdoption/issues"
+  },
+  "homepage": "https://github.com/mnasr6243/cst336-finalProject-petAdoption#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mysql2": "^3.15.3"
+  }
+}
