@@ -19,29 +19,28 @@ const pool = mysql.createPool({
 });
 
 //routes
-app.get('/', async (req, res) => {
+app.get('/', (req, res) => {
+    res.render('home.ejs');
+})
+
+app.get('/dog', async (req, res) => {
     let randomDog = await fetch("https://dog.ceo/api/breeds/image/random/10");
     let randomDogData = await randomDog.json();
+    let images = randomDogData.message;
 
     console.log(randomDogData);
 
-    let randomDogUrlArray = [];
-    let randomNumberArray = [];
-    for (let i = 0 ; i < randomDogData.message.length ; i++) {
-        randomNumberArray[i] = Math.floor(Math.random() * randomDogData.message.length);
-        randomDogUrlArray[i] = randomDogData.message[randomNumberArray[i]];
-    }
+   res.render('dog.ejs', { images });
+});
 
-    // Debugging
-    for (let i = 0 ; i < randomDogUrlArray.length ; i++) {
-        console.log(randomDogUrlArray[i]);
-    }
-    for (let i = 0 ; i < randomDogUrlArray.length ; i++) {
-        console.log(randomNumberArray[i]);
-    }
+app.get('/cat' , async (req, res) => {
+    let response = await fetch("https://api.thecatapi.com/v1/images/search?limit=10");
+    let data = await response.json();
 
+    let images = data.map(item => item.url);
+    console.log(images);
 
-   res.render('home.ejs', { randomDogUrlArray });
+    res.render('cat.ejs', { images });
 });
 
 app.get("/dbTest", async(req, res) => {

@@ -6,10 +6,11 @@
     <title>Pet Adoption</title>
 </head>
 <body>
-    <h1>Pet Adoption</h1>
-
-    <% for (i in randomDogUrlArray) { %>
-        <img src="<%= randomDogUrlArray[i] %>" style="width: 500px">
-    <% } %>
+    <form action="/dog" method="get">
+        <button type="submit">Dog</button>
+    </form>
+    <form action="/cat" method="get">
+        <button type="submit">Cat</button>
+    </form>
 </body>
 </html>
