@@ -1,53 +1,40 @@
 <%- include("partials/header") %>
 
-<section class="d-flex justify-content-center">
-  <article class="col-md-4">
-    <div class="card p-4 shadow-sm">
-      <h1 class="h4 mb-3 text-center">User / Admin Login</h1>
+  <section class="d-flex justify-content-center">
+    <article class="col-md-4">
+      <div class="card p-4 shadow-sm">
+        <h1 class="h4 mb-3 text-center">User / Admin Login</h1>
 
-      <% if (typeof error !== "undefined" && error) { %>
-        <div class="alert alert-danger small">
-          <%= error %>
-        </div>
-      <% } %>
+        <% if (typeof error !=="undefined" && error) { %>
+          <div class="alert alert-danger small">
+            <%= error %>
+          </div>
+          <% } %>
 
-      <form method="POST" action="/login">
-        
-        <div class="mb-3">
-          <label for="username" class="form-label">Username:</label>
-          <input
-            id="username"
-            type="text"
-            name="username"
-            class="form-control"
-            autocomplete="username"
-            required
-          >
-        </div>
+            <form method="POST" action="/login">
 
-        <div class="mb-3">
-          <label for="password" class="form-label">Password:</label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            class="form-control"
-            autocomplete="current-password"
-            required
-          >
-        </div>
+              <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input id="username" type="text" name="username" class="form-control" autocomplete="username" required>
+              </div>
 
-        <button type="submit" class="btn btn-primary w-100 mt-2">
-          Login
-        </button>
-      </form>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input id="password" type="password" name="password" class="form-control"
+                  autocomplete="current-password" required>
+              </div>
 
-      <p class="small text-muted text-center mt-3 mb-0">
-        Don't have an account?
-        <a href="/signup">Sign up here</a>.
-      </p>
-    </div>
-  </article>
-</section>
+              <button type="submit" class="btn btn-primary w-100 mt-2">
+                Login
+              </button>
+            </form>
 
-<%- include("partials/footer") %>
+            <p class="small text-muted text-center mt-3 mb-0">
+              Don't have an account?
+              <a href="/signup">Sign up here</a>.
+            </p>
+      </div>
+    </article>
+  </section>
+
+  <%- include("partials/footer") %>

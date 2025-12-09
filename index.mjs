@@ -192,15 +192,15 @@ app.get("/api/animals", requireLogin, async (req, res) => {
 app.get("/animals", requireLogin, async (req, res) => {
   try {
     const species = req.query.species;
-    
+
     let query = "SELECT * FROM animals WHERE status = 'available'";
     let params = [];
-    
+
     if (species) {
       query += " AND species = ?";
       params.push(species);
     }
-    
+
     query += " ORDER BY animalName";
 
     const [animals] = await conn.query(query, params);
@@ -216,7 +216,7 @@ app.get("/animals/add", requireAdmin, (req, res) => {
   res.render("addAnimal.ejs", { message: null });
 });
 
-// Handle add animal (admin only)  ⭐ UPDATED WITH image
+// Handle add animal (admin only)
 app.post("/animals/add", requireAdmin, async (req, res) => {
   const { animalName, species, image, age, status } = req.body;
 
@@ -251,7 +251,7 @@ app.get("/animals/:id/edit", requireAdmin, async (req, res) => {
   }
 });
 
-// Update animal (admin only)  ⭐ UPDATED WITH image
+// Update animal (admin only)
 app.post("/animals/:id/edit", requireAdmin, async (req, res) => {
   const { animalName, species, image, age, status } = req.body;
 

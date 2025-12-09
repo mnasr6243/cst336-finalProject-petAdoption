@@ -1,32 +1,32 @@
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const modalEl = document.getElementById("animalModal");
-  if (!modalEl) return;
+  document.addEventListener("DOMContentLoaded", function () {
+    const modalEl = document.getElementById("animalModal");
+    if (!modalEl) return;
 
-  const modal = new bootstrap.Modal(modalEl);
+    const modal = new bootstrap.Modal(modalEl);
 
-  const nameEl = document.getElementById("animalModalTitle");
-  const speciesEl = document.getElementById("modalSpecies");
-  const ageEl = document.getElementById("modalAge");
-  const statusEl = document.getElementById("modalStatus");
+    const nameEl = document.getElementById("animalModalTitle");
+    const speciesEl = document.getElementById("modalSpecies");
+    const ageEl = document.getElementById("modalAge");
+    const statusEl = document.getElementById("modalStatus");
 
-  document.querySelectorAll(".js-show-animal").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const name = btn.dataset.animalName;
-      const species = btn.dataset.species;
-      const age = btn.dataset.age;
-      const status = btn.dataset.status;
+    document.querySelectorAll(".js-show-animal").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const name = btn.dataset.animalName;
+        const species = btn.dataset.species;
+        const age = btn.dataset.age;
+        const status = btn.dataset.status;
 
-      nameEl.textContent = name;
-      speciesEl.textContent = species;
-      ageEl.textContent = age !== "null" ? age : "N/A";
-      statusEl.textContent = status;
+        nameEl.textContent = name;
+        speciesEl.textContent = species;
+        ageEl.textContent = age !== "null" ? age : "N/A";
+        statusEl.textContent = status;
 
-      // Save selected species to localStorage
-      localStorage.setItem("lastSpeciesViewed", species);
+        // Save selected species to localStorage
+        localStorage.setItem("lastSpeciesViewed", species);
 
-      modal.show();
+        modal.show();
+      });
     });
   });
-});
 </script>

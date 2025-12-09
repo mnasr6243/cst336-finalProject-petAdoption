@@ -1,78 +1,76 @@
 <%- include("partials/header") %>
 
-<section class="row justify-content-center">
-  <article class="col-md-6">
-    <div class="card p-4 shadow-sm">
-      <h1 class="h4 mb-3 text-center">Confirm Adoption</h1>
+  <section class="row justify-content-center">
+    <article class="col-md-6">
+      <div class="card p-4 shadow-sm">
+        <h1 class="h4 mb-3 text-center">Confirm Adoption</h1>
 
-      <p class="text-muted small text-center mb-4">
-        You're about to adopt <strong><%= animal.animalName %></strong>.
-        Please review their information before confirming.
-      </p>
+        <p class="text-muted small text-center mb-4">
+          You're about to adopt <strong>
+            <%= animal.animalName %>
+          </strong>.
+          Please review their information before confirming.
+        </p>
 
-      <div class="text-center mb-3">
-        <% if (animal.image) { %>
-          <img
-            src="<%= animal.image %>"
-            alt="<%= animal.animalName %>"
-            class="img-fluid rounded"
-            style="max-height: 260px; object-fit: cover;"
-          >
-        <% } else { %>
-          <img
-            src="https://via.placeholder.com/400x250?text=No+Image"
-            alt="No image available"
-            class="img-fluid rounded"
-            style="max-height: 260px; object-fit: cover;"
-          >
-        <% } %>
-      </div>
-
-      <ul class="list-group mb-3 small">
-        <li class="list-group-item d-flex justify-content-between">
-          <span class="text-muted">Name</span>
-          <span><strong><%= animal.animalName %></strong></span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between">
-          <span class="text-muted">Species</span>
-          <span><%= animal.species %></span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between">
-          <span class="text-muted">Age</span>
-          <span>
-            <% if (animal.age !== null) { %>
-              <%= animal.age %> year(s)
+        <div class="text-center mb-3">
+          <% if (animal.image) { %>
+            <img src="<%= animal.image %>" alt="<%= animal.animalName %>" class="img-fluid rounded"
+              style="max-height: 260px; object-fit: cover;">
             <% } else { %>
-              Not specified
-            <% } %>
-          </span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between">
-          <span class="text-muted">Current Status</span>
-          <span class="badge bg-<%= animal.status === 'available' ? 'success' : 'secondary' %>">
-            <%= animal.status %>
-          </span>
-        </li>
-      </ul>
+              <img src="https://via.placeholder.com/400x250?text=No+Image" alt="No image available"
+                class="img-fluid rounded" style="max-height: 260px; object-fit: cover;">
+              <% } %>
+        </div>
 
-      <div class="alert alert-warning small">
-        <i class="fa-solid fa-circle-exclamation me-1"></i>
-        By confirming, this pet will be marked as <strong>adopted</strong> and
-        removed from the public adoption list.
+        <ul class="list-group mb-3 small">
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="text-muted">Name</span>
+            <span><strong>
+                <%= animal.animalName %>
+              </strong></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="text-muted">Species</span>
+            <span>
+              <%= animal.species %>
+            </span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="text-muted">Age</span>
+            <span>
+              <% if (animal.age !==null) { %>
+                <%= animal.age %> year(s)
+                  <% } else { %>
+                    Not specified
+                    <% } %>
+            </span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="text-muted">Current Status</span>
+            <span class="badge bg-<%= animal.status === 'available' ? 'success' : 'secondary' %>">
+              <%= animal.status %>
+            </span>
+          </li>
+        </ul>
+
+        <div class="alert alert-warning small">
+          <i class="fa-solid fa-circle-exclamation me-1"></i>
+          By confirming, this pet will be marked as <strong>adopted</strong> and
+          removed from the public adoption list.
+        </div>
+
+        <form method="POST" action="/adopt/<%= animal.animalId %>" class="d-flex justify-content-between mt-3">
+          <a href="/animals" class="btn btn-outline-secondary">
+            Cancel
+          </a>
+
+          <button type="submit" class="btn btn-success">
+            <i class="fa-solid fa-heart me-1"></i>
+            Confirm Adoption
+          </button>
+        </form>
       </div>
+    </article>
+  </section>
 
-      <form method="POST" action="/adopt/<%= animal.animalId %>" class="d-flex justify-content-between mt-3">
-        <a href="/animals" class="btn btn-outline-secondary">
-          Cancel
-        </a>
-
-        <button type="submit" class="btn btn-success">
-          <i class="fa-solid fa-heart me-1"></i>
-          Confirm Adoption
-        </button>
-      </form>
-    </div>
-  </article>
-</section>
-
-<%- include("partials/footer") %>
+  <%- include("partials/footer") %>

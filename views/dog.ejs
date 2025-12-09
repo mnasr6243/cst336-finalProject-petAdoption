@@ -1,28 +1,26 @@
 <%- include("partials/header") %>
 
-<section>
-  <header class="mb-3">
-    <h1 class="h3 mb-1">Dog Gallery (External API)</h1>
-    <p class="small text-muted mb-0">
-      These images are loaded from the Dog API (dog.ceo).
-    </p>
-  </header>
+  <section>
+    <header class="mb-3">
+      <h1 class="h3 mb-1">Dog Gallery (External API)</h1>
+      <p class="small text-muted mb-0">
+        These images are loaded from the Dog API (dog.ceo).
+      </p>
+    </header>
 
-  <% if (!images || images.length === 0) { %>
-    <p>No dog images found. Please try again later.</p>
-  <% } else { %>
-    <div class="row g-3">
-      <% images.forEach(url => { %>
-        <article class="col-md-4 col-sm-6">
-          <div class="card shadow-sm">
-            <img src="<%= url %>"
-                 alt="Random Dog" 
-                 class="card-img-top rounded">
-          </div>
-        </article>
-      <% }) %>
-    </div>
-  <% } %>
-</section>
+    <% if (!images || images.length===0) { %>
+      <p>No dog images found. Please try again later.</p>
+      <% } else { %>
+        <div class="row g-3">
+          <% images.forEach(url=> { %>
+            <article class="col-md-4 col-sm-6">
+              <div class="card shadow-sm">
+                <img src="<%= url %>" alt="Random Dog" class="card-img-top rounded">
+              </div>
+            </article>
+            <% }) %>
+        </div>
+        <% } %>
+  </section>
 
-<%- include("partials/footer") %>
+  <%- include("partials/footer") %>

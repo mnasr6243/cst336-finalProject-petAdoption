@@ -1,63 +1,67 @@
 <%- include("partials/header") %>
 
-<section>
-  <header class="d-flex justify-content-between align-items-center mb-3">
-    <div>
-      <h1 class="h3 mb-1">Admin: Manage Animals</h1>
-      <p class="small text-muted mb-0">Add, edit, and manage adoption status.</p>
-    </div>
+  <section>
+    <header class="d-flex justify-content-between align-items-center mb-3">
+      <div>
+        <h1 class="h3 mb-1">Admin: Manage Animals</h1>
+        <p class="small text-muted mb-0">Add, edit, and manage adoption status.</p>
+      </div>
 
-    <a href="/animals/add" class="btn btn-success btn-sm">
-      <i class="fa-solid fa-plus me-1"></i> Add Animal
-    </a>
-  </header>
+      <a href="/animals/add" class="btn btn-success btn-sm">
+        <i class="fa-solid fa-plus me-1"></i> Add Animal
+      </a>
+    </header>
 
-  <% if (!animals || animals.length === 0) { %>
-    <p>No animals found in the database.</p>
-  <% } else { %>
-    <div class="table-responsive">
-      <table class="table table-sm align-middle">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Species</th>
-            <th>Age</th>
-            <th>Status</th>
-            <th class="text-end">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% animals.forEach(a => { %>
-            <tr>
-              <td><%= a.animalName %></td>
-              <td><%= a.species %></td>
-              <td><%= a.age !== null ? a.age : '-' %></td>
-              <td>
-                <span class="badge bg-<%= a.status === 'available' ? 'success' : 'secondary' %>">
-                  <%= a.status %>
-                </span>
-              </td>
-              <td class="text-end">
-                <a href="/animals/<%= a.animalId %>/edit"
-                   class="btn btn-outline-primary btn-sm">
-                  Edit
-                </a>
+    <% if (!animals || animals.length===0) { %>
+      <p>No animals found in the database.</p>
+      <% } else { %>
+        <div class="table-responsive">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Species</th>
+                <th>Age</th>
+                <th>Status</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% animals.forEach(a=> { %>
+                <tr>
+                  <td>
+                    <%= a.animalName %>
+                  </td>
+                  <td>
+                    <%= a.species %>
+                  </td>
+                  <td>
+                    <%= a.age !==null ? a.age : '-' %>
+                  </td>
+                  <td>
+                    <span class="badge bg-<%= a.status === 'available' ? 'success' : 'secondary' %>">
+                      <%= a.status %>
+                    </span>
+                  </td>
+                  <td class="text-end">
+                    <a href="/animals/<%= a.animalId %>/edit" class="btn btn-outline-primary btn-sm">
+                      Edit
+                    </a>
 
-                <% if (a.status === 'available') { %>
-                  <form method="POST" action="/adopt/<%= a.animalId %>"
-                        class="d-inline">
-                    <button class="btn btn-outline-success btn-sm">
-                      Mark Adopted
-                    </button>
-                  </form>
-                <% } %>
-              </td>
-            </tr>
-          <% }) %>
-        </tbody>
-      </table>
-    </div>
-  <% } %>
-</section>
+                    <% if (a.status==='available' ) { %>
+                      <form method="POST" action="/adopt/<%= a.animalId %>" class="d-inline">
+                        <button class="btn btn-outline-success btn-sm">
+                          Mark Adopted
+                        </button>
+                      </form>
+                      <% } %>
+                  </td>
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <% } %>
+  </section>
 
-<%- include("partials/footer") %>
+  <%- include("partials/footer") %>

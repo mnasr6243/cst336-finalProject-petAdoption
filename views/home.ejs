@@ -1,48 +1,46 @@
 <%- include("partials/header") %>
 
-<section class="row align-items-center">
-  
-  <article class="col-md-6 mb-4 mb-md-0">
-    <h1 class="display-5 mb-3">Find Your New Best Friend 🐾</h1>
+  <section class="row align-items-center">
 
-    <p class="lead">
-      Explore adoptable dogs and cats looking for a loving home.
-    </p>
+    <article class="col-md-6 mb-4 mb-md-0">
+      <h1 class="display-5 mb-3">Find Your New Best Friend 🐾</h1>
 
-    <p>
-      Browse pets, learn more about them, and give them a forever home.
-      Admins can log in to add, update, and manage animals.
-    </p>
+      <p class="lead">
+        Explore adoptable dogs and cats looking for a loving home.
+      </p>
 
-    <div class="d-flex gap-2 mt-3">
-      <a href="/animals?species=Dog" class="btn btn-primary">
-        <i class="fa-solid fa-dog me-1"></i> View Dogs
-      </a>
+      <p>
+        Browse pets, learn more about them, and give them a forever home.
+        Admins can log in to add, update, and manage animals.
+      </p>
 
-      <a href="/animals?species=Cat" class="btn btn-secondary">
-        <i class="fa-solid fa-cat me-1"></i> View Cats
-      </a>
-    </div>
-  </article>
+      <div class="d-flex gap-2 mt-3">
+        <a href="/animals?species=Dog" class="btn btn-primary">
+          <i class="fa-solid fa-dog me-1"></i> View Dogs
+        </a>
 
-  <aside class="col-md-6 text-center">
-    <h2 class="h5 mb-3">Random Pet Photo (External API)</h2>
+        <a href="/animals?species=Cat" class="btn btn-secondary">
+          <i class="fa-solid fa-cat me-1"></i> View Cats
+        </a>
+      </div>
+    </article>
 
-    <div class="random-pet-wrapper">
-      <img id="randomPetImg" 
-           alt="Random dog"
-           class="img-fluid rounded shadow-sm">
-    </div>
+    <aside class="col-md-6 text-center">
+      <h2 class="h5 mb-3">Random Pet Photo (External API)</h2>
 
-    <button id="refreshPetBtn" class="btn btn-outline-primary btn-sm mt-3">
-      Show another dog
-    </button>
+      <div class="random-pet-wrapper">
+        <img id="randomPetImg" alt="Random dog" class="img-fluid rounded shadow-sm">
+      </div>
 
-    <p class="small text-muted mt-2">
-      Powered by: Dog API (External API)
-    </p>
-  </aside>
+      <button id="refreshPetBtn" class="btn btn-outline-primary btn-sm mt-3">
+        Show another dog
+      </button>
 
-</section>
+      <p class="small text-muted mt-2">
+        Powered by: Dog API (External API)
+      </p>
+    </aside>
 
-<%- include("partials/footer") %>
+  </section>
+
+  <%- include("partials/footer") %>

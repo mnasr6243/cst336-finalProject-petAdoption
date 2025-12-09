@@ -1,75 +1,50 @@
 <%- include("partials/header") %>
 
-<section class="d-flex justify-content-center">
-  <article class="col-md-4">
-    <div class="card p-4 shadow-sm">
-      <h1 class="h4 mb-3 text-center">Create Account</h1>
+  <section class="d-flex justify-content-center">
+    <article class="col-md-4">
+      <div class="card p-4 shadow-sm">
+        <h1 class="h4 mb-3 text-center">Create Account</h1>
 
-      <% if (typeof error !== "undefined" && error) { %>
-        <div class="alert alert-danger small">
-          <%= error %>
-        </div>
-      <% } %>
+        <% if (typeof error !=="undefined" && error) { %>
+          <div class="alert alert-danger small">
+            <%= error %>
+          </div>
+          <% } %>
 
-      <form method="POST" action="/signup">
-        
-        <div class="mb-3">
-          <label for="firstName" class="form-label">First Name:</label>
-          <input
-            id="firstName"
-            type="text"
-            name="firstName"
-            class="form-control"
-            required
-          >
-        </div>
+            <form method="POST" action="/signup">
 
-        <div class="mb-3">
-          <label for="lastName" class="form-label">Last Name:</label>
-          <input
-            id="lastName"
-            type="text"
-            name="lastName"
-            class="form-control"
-            required
-          >
-        </div>
+              <div class="mb-3">
+                <label for="firstName" class="form-label">First Name:</label>
+                <input id="firstName" type="text" name="firstName" class="form-control" required>
+              </div>
 
-        <div class="mb-3">
-          <label for="username" class="form-label">Username:</label>
-          <input
-            id="username"
-            type="text"
-            name="username"
-            class="form-control"
-            autocomplete="username"
-            required
-          >
-        </div>
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name:</label>
+                <input id="lastName" type="text" name="lastName" class="form-control" required>
+              </div>
 
-        <div class="mb-3">
-          <label for="password" class="form-label">Password:</label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            class="form-control"
-            autocomplete="new-password"
-            required
-          >
-        </div>
+              <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input id="username" type="text" name="username" class="form-control" autocomplete="username" required>
+              </div>
 
-        <button type="submit" class="btn btn-success w-100 mt-2">
-          Sign Up
-        </button>
-      </form>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input id="password" type="password" name="password" class="form-control" autocomplete="new-password"
+                  required>
+              </div>
 
-      <p class="small text-muted text-center mt-3 mb-0">
-        Already have an account?
-        <a href="/login">Log in here</a>.
-      </p>
-    </div>
-  </article>
-</section>
+              <button type="submit" class="btn btn-success w-100 mt-2">
+                Sign Up
+              </button>
+            </form>
 
-<%- include("partials/footer") %>
+            <p class="small text-muted text-center mt-3 mb-0">
+              Already have an account?
+              <a href="/login">Log in here</a>.
+            </p>
+      </div>
+    </article>
+  </section>
+
+  <%- include("partials/footer") %>

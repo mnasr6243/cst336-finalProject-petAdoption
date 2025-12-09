@@ -1,85 +1,67 @@
 <%- include("partials/header") %>
 
-<section class="row justify-content-center">
-  <article class="col-md-6">
-    <div class="card p-4 shadow-sm">
-      <h1 class="h4 mb-3">Edit Animal</h1>
+  <section class="row justify-content-center">
+    <article class="col-md-6">
+      <div class="card p-4 shadow-sm">
+        <h1 class="h4 mb-3">Edit Animal</h1>
 
-      <% if (typeof message !== "undefined" && message) { %>
-        <div class="alert alert-success small">
-          <%= message %>
-        </div>
-      <% } %>
+        <% if (typeof message !=="undefined" && message) { %>
+          <div class="alert alert-success small">
+            <%= message %>
+          </div>
+          <% } %>
 
-      <form method="POST" action="/animals/<%= animal.animalId %>/edit">
-        
-        <div class="mb-3">
-          <label class="form-label" for="animalName">Name:</label>
-          <input
-            type="text"
-            id="animalName"
-            name="animalName"
-            class="form-control"
-            value="<%= animal.animalName %>"
-            required
-          >
-        </div>
+            <form method="POST" action="/animals/<%= animal.animalId %>/edit">
 
-        <div class="mb-3">
-          <label class="form-label" for="species">Species:</label>
-          <select id="species" name="species" class="form-select" required>
-            <option value="">-- Select species --</option>
-            <option value="Dog" <%= animal.species === 'Dog' ? 'selected' : '' %>>Dog</option>
-            <option value="Cat" <%= animal.species === 'Cat' ? 'selected' : '' %>>Cat</option>
-            <option value="Other" <%= animal.species === 'Other' ? 'selected' : '' %>>Other</option>
-          </select>
-        </div>
+              <div class="mb-3">
+                <label class="form-label" for="animalName">Name:</label>
+                <input type="text" id="animalName" name="animalName" class="form-control"
+                  value="<%= animal.animalName %>" required>
+              </div>
 
-        <!-- Image URL -->
-        <div class="mb-3">
-          <label class="form-label" for="image">Image URL:</label>
-          <input
-            type="text"
-            id="image"
-            name="image"
-            class="form-control"
-            value="<%= animal.image || '' %>"
-          >
-        </div>
+              <div class="mb-3">
+                <label class="form-label" for="species">Species:</label>
+                <select id="species" name="species" class="form-select" required>
+                  <option value="">-- Select species --</option>
+                  <option value="Dog" <%=animal.species==='Dog' ? 'selected' : '' %>>Dog</option>
+                  <option value="Cat" <%=animal.species==='Cat' ? 'selected' : '' %>>Cat</option>
+                  <option value="Other" <%=animal.species==='Other' ? 'selected' : '' %>>Other</option>
+                </select>
+              </div>
 
-        <div class="mb-3">
-          <label class="form-label" for="age">Age (years):</label>
-          <input
-            type="number"
-            id="age"
-            name="age"
-            min="0"
-            class="form-control"
-            value="<%= animal.age !== null ? animal.age : '' %>"
-          >
-        </div>
+              <!-- Image URL -->
+              <div class="mb-3">
+                <label class="form-label" for="image">Image URL:</label>
+                <input type="text" id="image" name="image" class="form-control" value="<%= animal.image || '' %>">
+              </div>
 
-        <div class="mb-3">
-          <label class="form-label" for="status">Status:</label>
-          <select id="status" name="status" class="form-select">
-            <option value="available" <%= animal.status === 'available' ? 'selected' : '' %>>
-              Available
-            </option>
-            <option value="adopted" <%= animal.status === 'adopted' ? 'selected' : '' %>>
-              Adopted
-            </option>
-          </select>
-        </div>
+              <div class="mb-3">
+                <label class="form-label" for="age">Age (years):</label>
+                <input type="number" id="age" name="age" min="0" class="form-control"
+                  value="<%= animal.age !== null ? animal.age : '' %>">
+              </div>
 
-        <button type="submit" class="btn btn-primary">
-          Save Changes
-        </button>
-        <a href="/admin/animals" class="btn btn-outline-secondary ms-2">
-          Cancel
-        </a>
-      </form>
-    </div>
-  </article>
-</section>
+              <div class="mb-3">
+                <label class="form-label" for="status">Status:</label>
+                <select id="status" name="status" class="form-select">
+                  <option value="available" <%=animal.status==='available' ? 'selected' : '' %>>
+                    Available
+                  </option>
+                  <option value="adopted" <%=animal.status==='adopted' ? 'selected' : '' %>>
+                    Adopted
+                  </option>
+                </select>
+              </div>
 
-<%- include("partials/footer") %>
+              <button type="submit" class="btn btn-primary">
+                Save Changes
+              </button>
+              <a href="/admin/animals" class="btn btn-outline-secondary ms-2">
+                Cancel
+              </a>
+            </form>
+      </div>
+    </article>
+  </section>
+
+  <%- include("partials/footer") %>
