@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/mnasr6243/cst336-finalProject-petAdoption#readme",
   "dependencies": {
+    "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
-    "express": "^5.1.0",
-    "mysql2": "^3.15.3"
+    "env": "^0.0.2",
+    "express": "^5.2.1",
+    "mysql2": "^3.15.3",
+    "sessions": "^0.0.2-7"
   }
 }
