@@ -191,9 +191,19 @@ app.get("/api/animals", requireLogin, async (req, res) => {
 // View all available animals (protected)
 app.get("/animals", requireLogin, async (req, res) => {
   try {
-    const [animals] = await conn.query(
-      "SELECT * FROM animals WHERE status = 'available' ORDER BY animalName"
-    );
+    const species = req.query.species;
+    
+    let query = "SELECT * FROM animals WHERE status = 'available'";
+    let params = [];
+    
+    if (species) {
+      query += " AND species = ?";
+      params.push(species);
+    }
+    
+    query += " ORDER BY animalName";
+
+    const [animals] = await conn.query(query, params);
     res.render("animals.ejs", { animals });
   } catch (err) {
     console.error("Error loading animals:", err);
