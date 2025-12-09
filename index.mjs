@@ -216,15 +216,15 @@ app.get("/animals/add", requireAdmin, (req, res) => {
   res.render("addAnimal.ejs", { message: null });
 });
 
-// Handle add animal (admin only)
+// Handle add animal (admin only)  ⭐ UPDATED WITH image
 app.post("/animals/add", requireAdmin, async (req, res) => {
-  const { animalName, species, age, status } = req.body;
+  const { animalName, species, image, age, status } = req.body;
 
   try {
     await conn.query(
-      `INSERT INTO animals (animalName, species, age, status)
-       VALUES (?, ?, ?, ?)`,
-      [animalName, species, age || null, status || "available"]
+      `INSERT INTO animals (animalName, species, image, age, status)
+       VALUES (?, ?, ?, ?, ?)`,
+      [animalName, species, image || null, age || null, status || "available"]
     );
 
     res.render("addAnimal.ejs", { message: "Animal added!" });
@@ -251,19 +251,20 @@ app.get("/animals/:id/edit", requireAdmin, async (req, res) => {
   }
 });
 
-// Update animal (admin only)
+// Update animal (admin only)  ⭐ UPDATED WITH image
 app.post("/animals/:id/edit", requireAdmin, async (req, res) => {
-  const { animalName, species, age, status } = req.body;
+  const { animalName, species, image, age, status } = req.body;
 
   try {
     await conn.query(
       `UPDATE animals 
        SET animalName = ?, 
            species    = ?, 
+           image      = ?,
            age        = ?, 
            status     = ?
        WHERE animalId = ?`,
-      [animalName, species, age || null, status, req.params.id]
+      [animalName, species, image || null, age || null, status, req.params.id]
     );
 
     const [rows] = await conn.query(

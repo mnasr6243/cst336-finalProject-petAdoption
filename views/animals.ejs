@@ -5,7 +5,7 @@
     <div>
       <h1 class="h3 mb-1">Available Animals</h1>
       <p class="small text-muted mb-0">
-        Browse dogs, cats, and other pets ready for adoption.
+        Browse pets currently available for adoption.
       </p>
     </div>
   </header>
@@ -19,6 +19,21 @@
         <article class="col-md-4">
           <div class="card h-100 animal-card">
             <div class="card-body d-flex flex-column">
+
+              <% if (a.image) { %>
+                <img
+                  src="<%= a.image %>"
+                  class="img-fluid rounded mb-2"
+                  alt="<%= a.animalName %>"
+                >
+              <% } else { %>
+                <img
+                  src="https://via.placeholder.com/400x250?text=No+Image"
+                  class="img-fluid rounded mb-2"
+                  alt="No image"
+                >
+              <% } %>
+
               <h2 class="h5"><%= a.animalName %></h2>
 
               <p class="mb-1 small text-muted">
