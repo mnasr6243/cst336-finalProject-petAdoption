@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/mnasr6243/cst336-finalProject-petAdoption#readme",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "env": "^0.0.2",
