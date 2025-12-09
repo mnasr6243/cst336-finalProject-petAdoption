@@ -1,0 +1,61 @@
+<%- include("partials/header") %>
+
+<section>
+  <header class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <h1 class="h3 mb-1">Admin: Manage Users</h1>
+      <p class="small text-muted mb-0">
+        View, edit, and delete user accounts.
+      </p>
+    </div>
+  </header>
+
+  <% if (!users || users.length === 0) { %>
+    <p>No users found.</p>
+  <% } else { %>
+    <div class="table-responsive">
+      <table class="table table-sm align-middle">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Role</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(u => { %>
+            <tr>
+              <td><%= u.username %></td>
+              <td><%= u.firstName || "" %></td>
+              <td><%= u.lastName || "" %></td>
+              <td>
+                <span class="badge bg-<%= u.isAdmin ? 'primary' : 'secondary' %>">
+                  <%= u.isAdmin ? 'Admin' : 'User' %>
+                </span>
+              </td>
+              <td class="text-end">
+                <a href="/admin/users/<%= u.userId %>/edit"
+                   class="btn btn-outline-primary btn-sm">
+                  Edit
+                </a>
+
+                <form method="POST"
+                      action="/admin/users/<%= u.userId %>/delete"
+                      class="d-inline"
+                      onsubmit="return confirm('Delete this user? This cannot be undone.');">
+                  <button class="btn btn-outline-danger btn-sm">
+                    Delete
+                  </button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  <% } %>
+</section>
+
+<%- include("partials/footer") %>

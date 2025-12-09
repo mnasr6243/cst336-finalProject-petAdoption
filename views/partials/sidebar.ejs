@@ -1,0 +1,30 @@
+<aside class="admin-sidebar">
+  <div class="sidebar-header">
+    <h2 class="h5 text-light mb-0">Admin Panel</h2>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a href="/admin/animals" class="sidebar-link">
+      <i class="fa-solid fa-paw sidebar-icon"></i> Manage Animals
+    </a>
+
+    <a href="/admin/adoptions" class="sidebar-link">
+      <i class="fa-solid fa-book sidebar-icon"></i> Adoption Log
+    </a>
+
+    <a href="/" class="sidebar-link">
+      <i class="fa-solid fa-home sidebar-icon"></i> Back to Home
+    </a>
+
+  </nav>
+
+  <div class="sidebar-footer">
+    <% if (loggedIn) { %>
+      <p class="small mb-1 text-light">Logged in as: <%= username %></p>
+      <a href="/logout" class="btn btn-outline-light btn-sm w-100">
+        Logout
+      </a>
+    <% } %>
+  </div>
+</aside>

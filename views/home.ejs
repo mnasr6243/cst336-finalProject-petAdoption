@@ -1,16 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Adoption</title>
-</head>
-<body>
-    <form action="/dog" method="get">
-        <button type="submit">Dog</button>
-    </form>
-    <form action="/cat" method="get">
-        <button type="submit">Cat</button>
-    </form>
-</body>
-</html>
+<%- include("partials/header") %>
+
+<section class="row align-items-center">
+  
+  <article class="col-md-6 mb-4 mb-md-0">
+    <h1 class="display-5 mb-3">Find Your New Best Friend 🐾</h1>
+
+    <p class="lead">
+      Explore adoptable dogs and cats looking for a loving home.
+    </p>
+
+    <p>
+      Browse pets, learn more about them, and give them a forever home.
+      Admins can log in to add, update, and manage animals.
+    </p>
+
+    <div class="d-flex gap-2 mt-3">
+      <a href="/animals?species=Dog" class="btn btn-primary">
+        <i class="fa-solid fa-dog me-1"></i> View Dogs
+      </a>
+
+      <a href="/animals?species=Cat" class="btn btn-secondary">
+        <i class="fa-solid fa-cat me-1"></i> View Cats
+      </a>
+    </div>
+  </article>
+
+  <aside class="col-md-6 text-center">
+    <h2 class="h5 mb-3">Random Pet Photo (External API)</h2>
+
+    <div class="random-pet-wrapper">
+      <img id="randomPetImg" 
+           alt="Random dog"
+           class="img-fluid rounded shadow-sm">
+    </div>
+
+    <button id="refreshPetBtn" class="btn btn-outline-primary btn-sm mt-3">
+      Show another dog
+    </button>
+
+    <p class="small text-muted mt-2">
+      Powered by: Dog API (External API)
+    </p>
+  </aside>
+
+</section>
+
+<%- include("partials/footer") %>

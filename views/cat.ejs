@@ -1,0 +1,28 @@
+<%- include("partials/header") %>
+
+<section>
+  <header class="mb-3">
+    <h1 class="h3 mb-1">Cat Gallery (External API)</h1>
+    <p class="small text-muted mb-0">
+      These images are loaded from The Cat API.
+    </p>
+  </header>
+
+  <% if (!images || images.length === 0) { %>
+    <p>No cat images found. Please try again later.</p>
+  <% } else { %>
+    <div class="row g-3">
+      <% images.forEach(url => { %>
+        <article class="col-md-4 col-sm-6">
+          <div class="card shadow-sm">
+            <img src="<%= url %>" 
+                 alt="Random Cat" 
+                 class="card-img-top rounded">
+          </div>
+        </article>
+      <% }) %>
+    </div>
+  <% } %>
+</section>
+
+<%- include("partials/footer") %>

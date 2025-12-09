@@ -1,0 +1,37 @@
+<%- include("partials/header") %>
+
+<section>
+  <header class="mb-3">
+    <h1 class="h3 mb-1">Adoption Log</h1>
+    <p class="small text-muted mb-0">
+      This table shows adoption events stored in the <code>adoptions</code> table.
+    </p>
+  </header>
+
+  <% if (!adoptions || adoptions.length === 0) { %>
+    <p>No adoptions recorded yet.</p>
+  <% } else { %>
+    <div class="table-responsive">
+      <table class="table table-sm align-middle">
+        <thead>
+          <tr>
+            <th>Animal</th>
+            <th>Species</th>
+            <th>Adopted At</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% adoptions.forEach(a => { %>
+            <tr>
+              <td><%= a.animalName %></td>
+              <td><%= a.species %></td>
+              <td><%= a.adoptedAt %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  <% } %>
+</section>
+
+<%- include("partials/footer") %>

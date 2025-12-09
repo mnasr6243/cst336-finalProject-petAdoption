@@ -1,0 +1,240 @@
+/* ===========================
+   Base & Typography
+=========================== */
+body.app-body {
+  background-color: #f3f4f6;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111827;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-main {
+  max-width: 1100px;
+}
+
+/* Header / Navbar */
+.app-header .navbar-brand {
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link {
+  font-size: 0.95rem;
+}
+
+.navbar-nav .nav-link i {
+  font-size: 0.9rem;
+}
+
+/* Footer */
+.app-footer {
+  border-top: 1px solid #d1d5db;
+  background-color: #f9fafb;
+}
+
+/* ===========================
+   Cards & Layout
+=========================== */
+.card {
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.card h1,
+.card h2,
+.card h3 {
+  margin-bottom: 0.75rem;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.animal-card h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.animal-card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Random pet image wrapper (home page) */
+.random-pet-wrapper {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+
+/* ===========================
+   Buttons & Forms
+=========================== */
+.btn {
+  border-radius: 999px;
+}
+
+.btn-primary {
+  font-weight: 500;
+}
+
+.btn-outline-primary,
+.btn-outline-secondary,
+.btn-outline-danger {
+  border-width: 1px;
+}
+
+.form-control,
+.form-select {
+  border-radius: 0.75rem;
+  border-color: #d1d5db;
+  font-size: 0.95rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 0.15rem rgba(79, 70, 229, 0.25);
+}
+
+/* Labels */
+.form-label {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Alerts */
+.alert {
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+/* ===========================
+   Tables
+=========================== */
+.table {
+  font-size: 0.9rem;
+}
+
+.table thead th {
+  background-color: #f3f4f6;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* ===========================
+   Admin Sidebar (if you use it)
+=========================== */
+.admin-sidebar {
+  background: #111827;
+  color: #e5e7eb;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.sidebar-header {
+  margin-bottom: 1rem;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-link {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sidebar-link:hover {
+  background-color: #1f2937;
+  color: #ffffff;
+}
+
+.sidebar-icon {
+  margin-right: 0.5rem;
+}
+
+.sidebar-footer {
+  margin-top: 1rem;
+  border-top: 1px solid #374151;
+  padding-top: 0.75rem;
+}
+
+/* ===========================
+   Modals
+=========================== */
+.modal-content {
+  border-radius: 1rem;
+}
+
+.modal-header {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-body p {
+  margin-bottom: 0.4rem;
+}
+
+/* ===========================
+   Utility Classes
+=========================== */
+.small {
+  font-size: 0.85rem;
+}
+
+.text-muted {
+  color: #6b7280 !important;
+}
+
+.text-light {
+  color: #f9fafb !important;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 768px) {
+  .app-main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .card {
+    border-radius: 0.85rem;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .random-pet-wrapper {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-nav .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+  }
+}

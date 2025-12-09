@@ -3,7 +3,7 @@
 <section class="d-flex justify-content-center">
   <article class="col-md-4">
     <div class="card p-4 shadow-sm">
-      <h1 class="h4 mb-3 text-center">User / Admin Login</h1>
+      <h1 class="h4 mb-3 text-center">Create Account</h1>
 
       <% if (typeof error !== "undefined" && error) { %>
         <div class="alert alert-danger small">
@@ -11,8 +11,30 @@
         </div>
       <% } %>
 
-      <form method="POST" action="/login">
+      <form method="POST" action="/signup">
         
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name:</label>
+          <input
+            id="firstName"
+            type="text"
+            name="firstName"
+            class="form-control"
+            required
+          >
+        </div>
+
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name:</label>
+          <input
+            id="lastName"
+            type="text"
+            name="lastName"
+            class="form-control"
+            required
+          >
+        </div>
+
         <div class="mb-3">
           <label for="username" class="form-label">Username:</label>
           <input
@@ -32,19 +54,19 @@
             type="password"
             name="password"
             class="form-control"
-            autocomplete="current-password"
+            autocomplete="new-password"
             required
           >
         </div>
 
-        <button type="submit" class="btn btn-primary w-100 mt-2">
-          Login
+        <button type="submit" class="btn btn-success w-100 mt-2">
+          Sign Up
         </button>
       </form>
 
       <p class="small text-muted text-center mt-3 mb-0">
-        Don't have an account?
-        <a href="/signup">Sign up here</a>.
+        Already have an account?
+        <a href="/login">Log in here</a>.
       </p>
     </div>
   </article>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pet Adoption</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="app-body">
+
+  <!-- Main Navigation -->
+  <header class="app-header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+
+        <a class="navbar-brand" href="/">Pet Adoption</a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNav"
+                aria-controls="mainNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- MENU -->
+        <div class="collapse navbar-collapse" id="mainNav">
+
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            <% if (loggedIn) { %>
+              <li class="nav-item">
+                <a class="nav-link" href="/animals?species=Dog">
+                  <i class="fa-solid fa-dog me-1"></i> Dogs
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/animals?species=Cat">
+                  <i class="fa-solid fa-cat me-1"></i> Cats
+                </a>
+              </li>
+
+              <% if (isAdmin) { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/admin/animals">
+                    <i class="fa-solid fa-paw me-1"></i> Manage Animals
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="/admin/adoptions">
+                    <i class="fa-solid fa-book me-1"></i> Adoption Log
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="/admin/users">
+                    <i class="fa-solid fa-users me-1"></i> Manage Users
+                  </a>
+                </li>
+              <% } %>
+            <% } %>
+
+          </ul>
+
+          <div class="d-flex align-items-center">
+            <% if (loggedIn) { %>
+              <span class="navbar-text small text-light me-3">
+                Logged in as <strong><%= username %></strong>
+              </span>
+              <a href="/logout" class="btn btn-outline-light btn-sm">
+                <i class="fa-solid fa-right-from-bracket me-1"></i> Logout
+              </a>
+            <% } else { %>
+              <a href="/login" class="btn btn-outline-light btn-sm me-2">
+                Login
+              </a>
+              <a href="/signup" class="btn btn-primary btn-sm">
+                Sign Up
+              </a>
+            <% } %>
+          </div>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="app-main container py-4">
