@@ -15,9 +15,16 @@ function initRandomDog() {
 
   async function loadDog() {
     try {
-      const res = await fetch("https://dog.ceo/api/breeds/image/random");
-      const data = await res.json();
-      img.src = data.message;
+      const resDog = await fetch("https://dog.ceo/api/breeds/image/random");
+      const dataDog = await resDog.json();
+      const resCat = await fetch("https://api.thecatapi.com/v1/images/search?limit=10");
+      const dataCat = await resCat.json();
+      let rand = Math.random() < 0.5;
+      if(rand) {
+        img.src = dataDog.message;
+      } else {
+        img.src = dataCat[0].url;
+      }
     } catch (err) {
       console.error("Dog API Error:", err);
     }
